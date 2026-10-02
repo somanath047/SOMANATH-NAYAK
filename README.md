@@ -2,6 +2,8 @@
 
 A responsive, single-page portfolio for Somanath Nayak, built with plain HTML, CSS, and JavaScript. Its visual direction is a dark “Field Signal” interface with chartreuse accents, Space Grotesk and DM Mono typography, and a cursive name signature.
 
+**Repository:** [github.com/somanath047/SOMANATH-NAYAK](https://github.com/somanath047/SOMANATH-NAYAK)
+
 ## Features
 
 ### Visual design and navigation
@@ -47,15 +49,16 @@ A responsive, single-page portfolio for Somanath Nayak, built with plain HTML, C
 index.html          Page structure and portfolio content
 style.css           Theme, layout, responsive styles, and animations
 script.js           Interactions and progressive enhancements
-profile.jpg         Profile photo used in the hero and About section
+profile.jpg         Profile photo used in the hero section
+gg.jpg              Profile photo used in the About section
 Somanath_resume.pdf  Resume PDF used by the download link
 Somanath_CV.pdf     CV PDF used by the download link
 ```
 
 ## Run locally
 
-1. Keep `index.html`, `style.css`, `script.js`, and `profile.jpg` in the same folder.
-2. Place `Somanath_resume.pdf` and `Somanath_CV.pdf` in the same folder if you want both download buttons to work.
+1. Keep `index.html`, `style.css`, `script.js`, `profile.jpg`, and `gg.jpg` in the same folder.
+2. Keep `Somanath_resume.pdf` and `Somanath_CV.pdf` in the same folder for the separate resume and CV download buttons.
 3. Open `index.html` in a modern browser. No build step or JavaScript framework is required.
 
 Google Fonts are loaded from Google Fonts when an internet connection is available; fallback fonts are used otherwise. Contact form submission uses `mailto:` and requires a configured email app.
@@ -65,7 +68,7 @@ Google Fonts are loaded from Google Fonts when an internet connection is availab
 - Update biography, project descriptions, education, and contact details in `index.html`.
 - Edit the color variables near the top of `style.css` to adjust the dark and light palettes.
 - Update the `projects` data in `script.js` if you change project detail descriptions or technology tags. Replace placeholder repository/demo actions when published links are ready.
-- Replace `profile.jpg` with another image using the same filename, or update its `src` in `index.html`.
+- Replace `profile.jpg` or `gg.jpg` with another image using the same filename, or update the corresponding `src` in `index.html`.
 - Change the animated role phrases in the `roles` array in `script.js`.
 
 ## Accessibility and motion
