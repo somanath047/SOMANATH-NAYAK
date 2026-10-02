@@ -759,6 +759,62 @@
     });
   }
 
+  function setupCommandPalette() {
+    const palette = document.querySelector(".command-palette");
+    const trigger = document.querySelector(".command-trigger");
+    const search = palette.querySelector(".command-search input");
+    const items = [...palette.querySelectorAll(".command-list button, .command-list a")];
+    let selected = 0;
+
+    function openPalette() {
+      palette.showModal();
+      search.value = "";
+      selected = 0;
+      updateItems();
+      search.focus();
+    }
+
+    function updateItems() {
+      const query = search.value.trim().toLowerCase();
+      items.forEach((item, index) => {
+        const visible = item.textContent.toLowerCase().includes(query);
+        item.hidden = !visible;
+        item.classList.toggle("is-selected", visible && index === selected);
+      });
+      const firstVisible = items.findIndex((item) => !item.hidden);
+      if (firstVisible >= 0 && items[selected]?.hidden) selected = firstVisible;
+    }
+
+    trigger.addEventListener("click", openPalette);
+    search.addEventListener("input", updateItems);
+    document.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        if (palette.open) palette.close();
+        else openPalette();
+      }
+      if (!palette.open) return;
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const visible = items.filter((item) => !item.hidden);
+        const current = visible.indexOf(items[selected]);
+        selected = items.indexOf(visible[(current + (event.key === "ArrowDown" ? 1 : -1) + visible.length) % visible.length]);
+        updateItems();
+      }
+      if (event.key === "Enter" && items[selected] && !items[selected].hidden) items[selected].click();
+    });
+    items.forEach((item) => item.addEventListener("click", () => {
+      const target = item.dataset.commandTarget;
+      if (target) {
+        palette.close();
+        document.querySelector(target)?.scrollIntoView({ behavior: prefersReducedMotion.matches ? "auto" : "smooth" });
+      }
+    }));
+    palette.addEventListener("click", (event) => {
+      if (event.target === palette) palette.close();
+    });
+  }
+
   function setYear() {
     document.querySelector("#year").textContent = new Date().getFullYear();
   }
@@ -781,4 +837,5 @@
   setupContact();
   setupPortraitFallbacks();
   setupEasterEgg();
+  setupCommandPalette();
 })();
