@@ -4,8 +4,6 @@ A responsive, single-page portfolio for Somanath Nayak, built with plain HTML, C
 
 **Repository:** [github.com/somanath047/SOMANATH-NAYAK](https://github.com/somanath047/SOMANATH-NAYAK)
 
-The current interface is the SOMANATH.OS v2 redesign: a personal technical product interface inspired by developer tools, operating-system command bars, and restrained cybersecurity dashboards.
-
 ## Features
 
 ### Visual design and navigation
@@ -19,8 +17,6 @@ The current interface is the SOMANATH.OS v2 redesign: a personal technical produ
 - Scroll-triggered reveal animations, with reduced-motion preferences respected.
 - Animated technology marquee.
 - Floating back-to-top control.
-- SOMANATH.OS technical shell with floating navigation, animated grid lighting, and responsive system metadata.
-- Ctrl/Cmd+K command palette with searchable navigation to portfolio sections, terminal, resume, and GitHub.
 
 ### Hero and profile
 
@@ -74,7 +70,6 @@ Google Fonts are loaded from Google Fonts when an internet connection is availab
 - Update the `projects` data in `script.js` if you change project detail descriptions or technology tags. Replace placeholder repository/demo actions when published links are ready.
 - Replace `profile.jpg` or `gg.jpg` with another image using the same filename, or update the corresponding `src` in `index.html`.
 - Change the animated role phrases in the `roles` array in `script.js`.
-- Update command palette destinations in the `.command-list` markup and `setupCommandPalette()` when adding new sections.
 
 ## Accessibility and motion
 
